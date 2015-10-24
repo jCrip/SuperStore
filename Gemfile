@@ -5,6 +5,7 @@ gem 'pg'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'devise'
+gem 'cancancan'
 
 gem 'jquery-rails'
 gem 'turbolinks'
