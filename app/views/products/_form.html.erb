@@ -24,12 +24,11 @@
     <%= f.text_field :price %>
   </div>
   <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
     <%= f.label :stock %><br>
     <%= f.number_field :stock %>
+  </div>
+  <div class="field">
+    <%= f.collection_select :category_id, Category.all, :id, :name, prompt: true %>
   </div>
   <div class="actions">
     <%= f.submit %>
