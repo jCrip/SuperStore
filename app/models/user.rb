@@ -12,12 +12,18 @@ class User < ActiveRecord::Base
   has_many :carts
   has_many :products, through: :carts
 
+  has_many :likes
+  has_many :product_likes, through: :likes, source: :likeable, source_type: 'Product'
+  has_many :review_likes, through: :likes, source: :likeable, source_type: 'Review'
+
   validates :name, presence: true
   validates :lastname, presence: true
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   validate :validate_username
 
   enum role: [:admin, :client, :guest]
+
+  default_scope { order(:role, :id) }
 
   def default_role
     self.role ||= 1
