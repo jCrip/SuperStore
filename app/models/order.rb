@@ -7,4 +7,6 @@ class Order < ActiveRecord::Base
 
   enum status: [:pending, :paid, :cancel]
 
+  default_scope { order(:status, :id) }
+
 end
