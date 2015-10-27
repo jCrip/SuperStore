@@ -1,30 +1,22 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    if params[:q].present?
+      @products = Product.where("lower(name) LIKE ?", "%#{params[:q].downcase}%")
+    else
+      @products = Product.all.includes(:category)
+    end
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
+    @reviews = @product.reviews.reverse
   end
 
-  # GET /products/new
-  def new
-    @product = Product.new
-  end
-
-  # GET /products/1/edit
-  def edit
-  end
-
-  # POST /products
-  # POST /products.json
-  def create
-    @product = Product.new(product_params)
   def like
     @like = @product.likes.build(user: current_user)
 
@@ -38,38 +30,21 @@ class ProductsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /products/1
-  # PATCH/PUT /products/1.json
-  def update
-    respond_to do |format|
-      if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
-        format.json { render :show, status: :ok, location: @product }
-      else
-        format.html { render :edit }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  def add_to_cart
+    quantity = params[:quantity] || 1
+    cart = Cart.find_or_initialize_by(product_id: params[:id])
+    cart.user = current_user if user_signed_in?
+    cart.product = Product.find(params[:id])
+    cart.quantity = quantity
+    cart.save
 
-  # DELETE /products/1
-  # DELETE /products/1.json
-  def destroy
-    @product.destroy
-    respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:success] = 'Producto añadido a tu carro'
+    redirect_to :back
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def product_params
-      params.require(:product).permit(:name, :description, :price, :price, :stock, :category_id)
     end
 end

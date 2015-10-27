@@ -6,3 +6,36 @@ LOG:  autovacuum launcher shutting down
 LOG:  received smart shutdown request
 LOG:  shutting down
 LOG:  database system is shut down
+LOG:  database system was shut down at 2015-10-24 23:56:29 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  update or delete on table "products" violates foreign key constraint "fk_rails_916f2a1419" on table "carts"
+DETAIL:  Key (id)=(22) is still referenced from table "carts".
+STATEMENT:  DELETE FROM "products" WHERE "products"."id" = $1
+ERROR:  invalid input syntax for integer: "paid" at character 49
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (status = 'paid')
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2015-10-26 22:12:34 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  missing FROM-clause entry for table "id" at character 65
+STATEMENT:  SELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 AND "id"."product_id" = 2 LIMIT 1
+ERROR:  missing FROM-clause entry for table "id" at character 65
+STATEMENT:  SELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 AND "id"."product_id" = 2 LIMIT 1
+ERROR:  missing FROM-clause entry for table "id" at character 65
+STATEMENT:  SELECT  "carts".* FROM "carts" WHERE "carts"."user_id" = $1 AND "id"."product_id" = 2 LIMIT 1
+ERROR:  column likes.likable_id does not exist at character 71
+STATEMENT:  SELECT "movies".* FROM "movies" INNER JOIN "likes" ON "movies"."id" = "likes"."likable_id" WHERE "likes"."user_id" = $1 AND "likes"."likable_type" = 'Movie'  ORDER BY "movies"."realease_date" DESC
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2015-10-27 17:40:17 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started

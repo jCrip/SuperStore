@@ -10,6 +10,8 @@ class Ability
       can :create, Review
       can [:update, :destroy], Review, user_id: user.id
       can :like, [Product, Review]
+      can :add_to_cart, Product
+      can :destroy, Cart, user_id: user.id
     else
       can :read, :all
     end
