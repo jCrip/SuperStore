@@ -25,15 +25,16 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
+  def like
+    @like = @product.likes.build(user: current_user)
 
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
-      else
-        format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
-      end
+    if @product.liked_by? current_user
+      @product.remove_like current_user
+      redirect_to @product, notice: 'Tu like a sido eliminado :('
+    elsif @product.save
+      redirect_to @product, notice: 'Gracias por tu like :D'
+    else
+      redirect_to @product, notice: 'Tu like no se ha guardado :('
     end
   end
 

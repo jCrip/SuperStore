@@ -1,0 +1,9 @@
+<%= button_to like_product_path(likeable), method: :get, class: 'btn btn-primary m-r-md', form_class: "form-inline pull-left" do %>
+	<% if likeable.liked_by? current_user %>
+		Unlike
+		<span class="icon-thumbs-down"></span>
+	<% else %>
+		Like
+		<span class="icon-thumbs-up"></span>
+	<% end %>
+<% end %>
