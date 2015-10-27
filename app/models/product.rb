@@ -1,4 +1,7 @@
 class Product < ActiveRecord::Base
+  include ApplicationHelper
+
+  mount_uploader :image, ImageUploader
 
   belongs_to :category
 
