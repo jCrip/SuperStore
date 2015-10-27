@@ -1,0 +1,23 @@
+<div class="jumbotron">
+  <h1 class="display-3">Usuarios</h1>
+</div>
+
+<table class="table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Correo</th>
+      <th>Typo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @users %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User', new_admin_user_path %>

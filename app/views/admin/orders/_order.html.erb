@@ -1,0 +1,8 @@
+<tr>
+	<th scope="row"><%= order.id %></th>
+  <td><%= order.user %></td>
+  <td><%= order.products.count %></td>
+  <td><%= order.status %></td>
+  <td><%= link_to 'Show', admin_order_path(order) %></td>
+  <td><%= link_to 'Destroy', admin_order_path(order), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

@@ -1,0 +1,17 @@
+<h1 class="display-4 m-t-md m-b-md">Editing Product</h1>
+
+<%= render 'form' %>
+
+<hr>
+
+<p class="m-t-md m-b-md">
+<%= link_to @product, class: 'btn btn-warning' do %>
+	  Ver
+	  <span class="icon-eye" aria-hidden="true"></span>
+	<% end %>
+
+	<%= link_to products_path, class: 'btn btn-info' do %>
+	  <span class="icon-back" aria-hidden="true"></span>
+	  Volver
+	<% end %>
+</p>

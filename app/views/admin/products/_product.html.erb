@@ -1,0 +1,12 @@
+<tr>
+	<th scope="row"><%= product.id %></th>
+  <td><%= product.name %></td>
+  <td><%= truncate product.description %></td>
+  <td><%= number_to_currency product.price %></td>
+  <td><%= product.stock %></td>
+  <td><%= product.category %></td>
+  <td><%= product.likes.count %></td>
+  <td><%= link_to 'Show', admin_product_path(product) %></td>
+  <td><%= link_to 'Edit', edit_admin_product_path(product) %></td>
+  <td><%= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
