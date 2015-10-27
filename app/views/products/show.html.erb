@@ -1,27 +1,50 @@
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<p>
-  <strong>Stock:</strong>
-  <%= @product.stock %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @product.category %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title display-4"><%= @product.name %></h3>
+        <p class="card-subtitle text-muted"><strong>Categoria: </strong><%= @product.category %></p>
+      </div>
+      <%= image_tag(@product.image_url, class: 'card-img-top img-responsive') if @product.image? %>
+      <div class="card-block">
+        <p class="card-text"><%= @product.description %></p>
+        <p class="card-text"><strong><%= number_to_currency @product.price %></strong></p>
+      </div>
+      <div class="card-footer clearfix">
+        <div class="pull-left clearfix">
+          <p class="pull-left m-r-md">Likes: <strong><%= @product.likes.count %></strong></p>
+          <% if can? :like, Product %>
+            <%= render partial: "likes/action", locals: {likeable: @product} %>
+          <% end %>
+          <p class="pull-left m-r-md m-b-0">
+            <%= link_to products_path, class: 'btn btn-info' do %>
+              <span class="icon-back" aria-hidden="true"></span>
+              Volver
+            <% end %>
+          </p>
+        </div>
+        <% if can? :add_to_cart, Product %>
+          <div class="pull-right">
+            <%= form_tag add_to_cart_product_path(@product), method: :get, class: 'form-inline' do |f| %>
+              <div class="form-group">
+                <%= label_tag :quantity, 'Cantidad' %>
+                <%= text_field_tag :quantity, current_user.carts.quantity_of(@product), class: 'form-control', style: 'width: 45px; text-align: center' %>
+                <%= submit_tag('Añadir al carro', class: 'btn btn-success') %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<h2 class="display-4 m-t-md m-b-md">Deja tu review</h2>
+<div class="row">
+  <% if can? :create, Review %>
+    <%= render partial: 'reviews/form' %>
+  <% end %>
+</div>
+<% if @product.reviews.any? %>
+  <h2 class="display-4 m-t-md m-b-md">Reviews</h2>
+<% end %>
+<%= render partial: 'reviews/review', collection: @reviews %>

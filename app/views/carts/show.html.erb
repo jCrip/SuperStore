@@ -1,0 +1,28 @@
+<h2 class="display-4 m-t-md m-b-md">Carro de compras</h2>
+
+<hr>
+
+<table class="table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+      <th class="text-center">#</th>
+      <th></th>
+      <th>Name</th>
+      <th class="text-center">Cantidad</th>
+      <th class="text-right">Price</th>
+      <th class="text-right">Subtotal</th>
+      <th class="text-center">Eliminar</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  	<%= render @carts %>
+  	<tr class="table-footer">
+  		<td colspan="5" class="text-right text-uppercase lead"><strong>Total:</strong></td>
+  		<td class="text-right"><strong class="lead"><%= number_to_currency @carts.total %></strong></td>
+  		<td class="text-center"><%= link_to 'Comprar', nil, class: 'btn btn-success' if can? :add_to_cart, Product %></td>
+  	</tr>
+  </tbody>
+</table>
+
+<hr>
