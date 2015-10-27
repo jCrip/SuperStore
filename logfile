@@ -39,3 +39,5 @@ LOG:  database system was shut down at 2015-10-27 17:40:17 CLT
 LOG:  MultiXact member wraparound protections are now enabled
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+ERROR:  column likes.likeable_id does not exist at character 64
+STATEMENT:  SELECT  1 AS one FROM "likes" WHERE ("likes"."user_id" = 2 AND "likes"."likeable_id" IS NULL AND "likes"."likeable_type" IS NULL) LIMIT 1

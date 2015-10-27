@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
   has_many :products, through: :carts
 
   has_many :likes
-  has_many :product_likes, through: :likes, source: :likeable, source_type: 'Product'
-  has_many :review_likes, through: :likes, source: :likeable, source_type: 'Review'
+  has_many :product_likes, through: :likes, source: :likable, source_type: 'Product'
+  has_many :review_likes, through: :likes, source: :likable, source_type: 'Review'
 
   validates :name, presence: true
   validates :lastname, presence: true

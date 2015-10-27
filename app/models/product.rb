@@ -13,7 +13,7 @@ class Product < ActiveRecord::Base
 
   has_many :reviews, dependent: :destroy
 
-  has_many :likes, as: :likeable
+  has_many :likes, as: :likable
   has_many :user_likes, through: :likes, source: :user
 
   validates :name, presence: true, uniqueness: true

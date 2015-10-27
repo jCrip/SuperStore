@@ -35,13 +35,13 @@ ActiveRecord::Schema.define(version: 20151025015020) do
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "likeable_id"
-    t.string   "likeable_type"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "likable_id"
+    t.string   "likable_type"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
-  add_index "likes", ["likeable_type", "likeable_id"], name: "index_likes_on_likeable_type_and_likeable_id", using: :btree
+  add_index "likes", ["likable_type", "likable_id"], name: "index_likes_on_likable_type_and_likable_id", using: :btree
   add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
