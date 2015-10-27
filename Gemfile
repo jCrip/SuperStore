@@ -12,6 +12,11 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'entypo-rails'
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem 'sass-rails'
+gem 'mini_magick'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'byebug'

@@ -10,6 +10,33 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
+ *= require entypo
  */
+ @charset "UTF-8";
+ $enable-flex: true;
+ @import "bootstrap";
+ @import "alert";
+ @import "buttons";
+
+.mw {
+	max-width: 33.333%;
+}
+
+ .img-responsive {
+ 	width: 100%;
+ 	max-width: 100%;
+ }
+
+footer {
+ 	background-color: #373A3C;
+ 	color: #ffffff
+ }
+
+.table-footer {
+ 	background-color: #373A3C !important;
+ 	color: #ffffff !important;
+ }
+
+ .table th, .table td {
+ 	vertical-align: middle;
+ }
