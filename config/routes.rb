@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users, skip: [:sessions, :registrations]
 
   devise_scope :user do
@@ -12,7 +13,27 @@ Rails.application.routes.draw do
     get    "account" => "devise/registrations#edit",   as: :edit_user_registration
   end
 
-  resources :products
+  namespace :admin do
+    resources :products
+    resources :users
+    resources :orders, only: [:index, :show, :destroy]
+  end
+
+  resources :products, only: [:index, :show] do
+    resources :reviews, only: [:create] do
+      member do
+        get 'like'
+      end
+    end
+
+    member do
+      get 'like'
+      get 'add_to_cart'
+    end
+  end
+
+  get 'cart/:user_id', to: 'carts#show', as: 'cart'
+  delete 'cart/:id', to: 'carts#destroy'
 
   root 'products#index'
 
