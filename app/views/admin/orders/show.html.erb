@@ -1,2 +1,77 @@
-<%= link_to 'Edit', edit_admin_order_path(@admin_order) %> |
-<%= link_to 'Back', admin_orders_path %>
+<h2 class="display-4 m-t-md m-b-md">Orden de Compra</h2>
+
+<div class="row">
+  <div class="col-md-5">
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>Cliente:</th>
+          <td><%= @order.user %></td>
+        </tr>
+        <tr>
+          <th>Correo:</th>
+          <td><%= @order.user.email %></td>
+        </tr>
+        <tr>
+          <% if @order.pending? %>
+          <th class="table-warning">Estado:</th>
+          <td class="table-warning">Pendiente</td>
+          <% elsif @order.paid? %>
+          <th class="table-success">Estado:</th>
+          <td class="table-success">Pagada</td>
+          <% elsif @order.cancel? %>
+          <th class="table-danger">Estado:</th>
+          <td class="table-danger">Cancelada</td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-md-12">
+    <h4 class="m-t-md m-b-md">Detalle</h4>
+    <table class="table table-striped">
+      <thead class="thead-inverse">
+        <tr>
+          <th class="text-center">#</th>
+          <th></th>
+          <th>Producto</th>
+          <th class="text-center">Cantidad</th>
+          <th class="text-right">Price</th>
+          <th class="text-right">Subtotal</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @product_orders.each do |po| %>
+        <tr>
+          <th scope="row" class="text-center"><%= po.id %></th>
+          <td><%= image_tag po.product.image.thumb.url, width: '50px' %></td>
+          <td><%= po.product.name %></td>
+          <td class="text-center"><%= po.quantity %></td>
+          <td class="text-right"><%= number_to_currency po.product.price %></td>
+          <td class="text-right"><%= number_to_currency po.subtotal %></td>
+        </tr>
+        <% end %>
+        <tr class="table-footer">
+          <td colspan="5" class="text-right text-uppercase lead"><strong>Total:</strong></td>
+          <td class="text-right"><strong class="lead"><%= number_to_currency @product_orders.total %></strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <p>
+      <%= link_to admin_orders_path, class: 'btn btn-info' do %>
+      <span class="icon-back" aria-hidden="true"></span>
+      Volver
+      <% end %>
+    </p>
+  </div>
+
+</div>

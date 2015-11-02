@@ -2,7 +2,7 @@ class CartsController < ApplicationController
   load_and_authorize_resource
 
   def show
-    user = User.find(params[:user_id])
+    user = User.find(current_user)
     @carts = user.carts
   end
 

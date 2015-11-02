@@ -41,3 +41,37 @@ LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
 ERROR:  column likes.likeable_id does not exist at character 64
 STATEMENT:  SELECT  1 AS one FROM "likes" WHERE ("likes"."user_id" = 2 AND "likes"."likeable_id" IS NULL AND "likes"."likeable_type" IS NULL) LIMIT 1
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2015-10-27 22:06:10 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  cached plan must not change result type
+STATEMENT:  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1
+ERROR:  relation "reviews" does not exist at character 323
+STATEMENT:                SELECT a.attname, format_type(a.atttypid, a.atttypmod),
+	                     pg_get_expr(d.adbin, d.adrelid), a.attnotnull, a.atttypid, a.atttypmod
+	                FROM pg_attribute a LEFT JOIN pg_attrdef d
+	                  ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+	               WHERE a.attrelid = '"reviews"'::regclass
+	                 AND a.attnum > 0 AND NOT a.attisdropped
+	               ORDER BY a.attnum
+	
+ERROR:  database "superstore_development" is being accessed by other users
+DETAIL:  There is 1 other session using the database.
+STATEMENT:  DROP DATABASE IF EXISTS "superstore_development"
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
+LOG:  database system was shut down at 2015-10-29 22:09:50 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+LOG:  received smart shutdown request
+LOG:  autovacuum launcher shutting down
+LOG:  shutting down
+LOG:  database system is shut down

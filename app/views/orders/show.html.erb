@@ -1,0 +1,29 @@
+<h2 class="display-4 m-t-md m-b-md">Orden de Compra</h2>
+
+<hr>
+
+<table class="table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+      <th class="text-center">#</th>
+      <th></th>
+      <th>Producto</th>
+      <th class="text-center">Cantidad</th>
+      <th class="text-right">Price</th>
+      <th class="text-right">Subtotal</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <%= render partial: 'order', collection: @product_orders %>
+    </tr>
+  	<tr class="table-footer">
+  		<td colspan="4" class="text-right text-uppercase lead"><strong>Total:</strong></td>
+  		<td class="text-right"><strong class="lead"><%= number_to_currency @product_orders.total %></strong></td>
+  		<td class="text-center"><%= link_to 'Pagar', paid_order_path(@order), method: :post, class: 'btn btn-success' unless @order.paid? %></td>
+  	</tr>
+  </tbody>
+</table>
+
+<hr>

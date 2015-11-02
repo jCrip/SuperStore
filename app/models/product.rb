@@ -22,4 +22,11 @@ class Product < ActiveRecord::Base
   validates :stock, presence: true
   validates :category, presence: true
 
+  default_scope { order(:id) }
+
+  def update_stock (quantity)
+    self.stock += quantity
+    self.save
+  end
+
 end

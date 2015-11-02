@@ -1,11 +1,11 @@
 <tr>
 	<th scope="row" class="text-center"><%= cart.product_id %></th>
   <td><%= image_tag cart.product.image.thumb.url, width: '50px' %></td>
-  <td><%= cart.product.name %></td>
+  <td><%= link_to cart.product.name, cart.product %></td>
   <td class="text-center">
     <%= form_tag add_to_cart_product_path(cart.product), method: :get, class: 'form-inline' do |f| %>
       <div class="form-group">
-        <%= text_field_tag :quantity, cart.quantity, class: 'form-control', style: 'width: 45px; text-align: center' %>
+        <%= number_field_tag :quantity, cart.quantity, min: 1, max: cart.product.stock , class: 'form-control', style: 'width: 60px; text-align: center' %>
       </div>
     <% end %>
   </td>

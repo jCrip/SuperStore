@@ -1,0 +1,8 @@
+<tr>
+  <th scope="row" class="text-center"><%= order.id %></th>
+  <td><%= image_tag order.product.image.thumb.url, width: '50px' %></td>
+  <td><%= order.product.name %></td>
+  <td class="text-center"><%= order.quantity %></td>
+  <td class="text-right"><%= number_to_currency order.product.price %></td>
+  <td class="text-right"><%= number_to_currency order.subtotal %></td>
+</tr>

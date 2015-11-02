@@ -20,7 +20,7 @@
   	<tr class="table-footer">
   		<td colspan="5" class="text-right text-uppercase lead"><strong>Total:</strong></td>
   		<td class="text-right"><strong class="lead"><%= number_to_currency @carts.total %></strong></td>
-  		<td class="text-center"><%= link_to 'Comprar', nil, class: 'btn btn-success' if can? :add_to_cart, Product %></td>
+  		<td class="text-center"><%= link_to 'Comprar', create_order_path, class: 'btn btn-success' %></td>
   	</tr>
   </tbody>
 </table>

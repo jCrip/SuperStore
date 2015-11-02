@@ -11,6 +11,7 @@ class Admin::OrdersController < ApplicationController
   # GET /admin/orders/1
   # GET /admin/orders/1.json
   def show
+    @product_orders = ProductOrder.where(order: @order)
   end
 
   # DELETE /admin/orders/1

@@ -32,8 +32,13 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'cart/:user_id', to: 'carts#show', as: 'cart'
+  get 'cart', to: 'carts#show', as: 'cart'
   delete 'cart/:id', to: 'carts#destroy'
+
+  get 'order', to: 'orders#create_order', as: 'create_order'
+  get 'order/:id', to: 'orders#show', as: 'order'
+  post 'order/:id', to: 'orders#paid_order', as: 'paid_order'
+  delete 'order/:id', to: 'orders#cancel_order', as: 'cancel_order'
 
   root 'products#index'
 

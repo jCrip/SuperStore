@@ -11,9 +11,18 @@ class Ability
       can [:update, :destroy], Review, user_id: user.id
       can :like, [Product, Review]
       can :add_to_cart, Product
+      can :show, Cart
       can :destroy, Cart, user_id: user.id
+      can :create_order, Order
+      can :paid_order, Order, user_id: user.id
+      can :cancel_order, Order, user_id: user.id
+      cannot :read, Order do |order|
+        order.try(:user) != user
+      end
     else
       can :read, :all
+      cannot :manage, Cart
+      cannot :manage, Order
     end
   end
 
