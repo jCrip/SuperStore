@@ -14,9 +14,12 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    get '/', to: 'pages#index'
+
     resources :products
     resources :users
     resources :orders, only: [:index, :show, :destroy]
+
   end
 
   resources :products, only: [:index, :show] do
