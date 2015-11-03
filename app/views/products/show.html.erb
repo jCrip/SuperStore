@@ -43,12 +43,12 @@
   </div>
 </div>
 <% if can? :create, Review %>
-<h2 class="display-4 m-t-md m-b-md">Deja tu review</h2>
-<div class="row">
-    <%= render partial: 'reviews/form' %>
-  <% end %>
-</div>
-<% if @product.reviews.any? %>
-  <h2 class="display-4 m-t-md m-b-md">Reviews</h2>
+  <h2 class="display-4 m-t-md m-b-md">Deja tu review</h2>
+  <div class="row">
+      <%= render partial: 'reviews/form' %>
+  </div>
 <% end %>
-<%= render partial: 'reviews/review', collection: @reviews %>
+<% if @product.reviews.any? %>
+  <h2 class="display-4 m-t-md m-b-md">Reviews (<%= @product.reviews.count %>)</h2>
+  <%= render partial: 'reviews/review', collection: @reviews %>
+<% end %>
