@@ -18,6 +18,8 @@ gem 'sass-rails'
 gem 'mini_magick'
 gem 'carrierwave'
 
+gem 'delayed_job_active_record'
+
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
