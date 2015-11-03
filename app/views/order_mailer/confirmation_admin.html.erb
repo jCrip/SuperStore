@@ -1,0 +1,6 @@
+<h1>Querido administrador se ha realizado una compra en tu sitio</h1>
+<p>El numero de la orden de compra es: <%= @order.id %></p>
+<p>Total pagado es: <%= number_to_currency @order.product_orders.total %></p>
+<p>Recuerda despachar la compra</p>
+
+<p><strong>Atte. Tu mismo</strong></p>

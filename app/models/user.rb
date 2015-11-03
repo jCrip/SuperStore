@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   before_save :default_role
+  after_create :send_welcome_email
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -9,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :orders, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
-  has_many :carts
+  has_many :carts, dependent: :destroy
   has_many :products, through: :carts
 
   has_many :likes
@@ -37,6 +38,10 @@ class User < ActiveRecord::Base
 
   def to_s
     "#{self.name} #{self.lastname}"
+  end
+
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver_later
   end
 
 end
