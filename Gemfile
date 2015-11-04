@@ -27,6 +27,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'faker'
   gem 'dotenv-rails'
+  gem 'bullet'
 end
 
 group :development do
