@@ -7,8 +7,8 @@ class UserMailer < ApplicationMailer
     mail(
          to: 'juancrip@gmail.com',
          subject: 'Bienvenido a SuperStore',
-         template_path: 'user_mailer', #opcional si sigues la convension
-         template_name: 'welcome_email' # opcional si sigues la convension
+         template_path: 'user_mailer', #opcional si sigues la convension de nombres
+         template_name: 'welcome_email' # opcional si sigues la convension de nombres
          )
   end
 

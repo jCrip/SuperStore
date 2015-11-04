@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   end
 
   def send_welcome_email
-    SendEmailJob.set(wait: 20.seconds).perform_later(self)
+    SendEmailJob.set(wait: 30.seconds).perform_later(self)
   end
 
 end
