@@ -1,6 +1,7 @@
 Cart.destroy_all
 ProductOrder.destroy_all
 Order.destroy_all
+Review.destroy_all
 Product.destroy_all
 User.destroy_all
 Category.destroy_all
@@ -53,8 +54,18 @@ products = []
     description: Faker::Lorem.paragraph(10, true, 10),
     price: Faker::Commerce.price,
     stock: Faker::Number.between(1, 20),
-    category: categories[rand(categories.length)],
+    category: categories.sample,
     remote_image_url: 'http://lorempixel.com/1200/800'
+  )
+end
+
+reviews = []
+
+150.times do |r|
+  reviews << Review.create(
+    user: users.sample,
+    product: products.sample,
+    content: Faker::Hacker.say_something_smart
   )
 end
 

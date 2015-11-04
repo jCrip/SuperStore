@@ -40,8 +40,10 @@ class User < ActiveRecord::Base
     "#{self.name} #{self.lastname}"
   end
 
-  def send_welcome_email
-    SendEmailJob.set(wait: 30.seconds).perform_later(self)
-  end
+  private
+
+    def send_welcome_email
+      SendEmailJob.set(wait: 30.seconds).perform_later(self)
+    end
 
 end
