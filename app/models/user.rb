@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   before_save :default_role
   after_create :send_welcome_email
+  after_update :send_password_change_email, if: :needs_password_change_email?
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -43,7 +44,15 @@ class User < ActiveRecord::Base
   private
 
     def send_welcome_email
-      SendEmailJob.set(wait: 30.seconds).perform_later(self)
+      UserMailer.welcome_email(self).deliver_later
+    end
+
+    def needs_password_change_email?
+      encrypted_password_changed? && persisted?
+    end
+
+    def send_password_change_email
+      UserMailer.password_changed(self).deliver_later(wait: 30.seconds)
     end
 
 end

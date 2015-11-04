@@ -3,4 +3,8 @@ class UserMailerPreview < ActionMailer::Preview
   def welcome_email_preview
     UserMailer.welcome_email(User.last)
   end
+
+  def password_changed_preview
+    UserMailer.password_changed(User.last)
+  end
 end
