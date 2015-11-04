@@ -24,6 +24,8 @@ class OrdersController < ApplicationController
   def paid_order
     @order = Order.find(params[:id])
     @order.paid!
+    OrderMailer.confirmation_email(@order, current_user).deliver_later
+    OrderMailer.confirmation_admin(@order).deliver_later
     redirect_to :back
   end
 
