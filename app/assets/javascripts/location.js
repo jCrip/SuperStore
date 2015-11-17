@@ -32,11 +32,13 @@ $(document).on('page:change', function() {
 		}
 	}
 
-	// $('.js-getlocation').on('click', function(event) {
-	// 	event.preventDefault();
-	// 	getLocation();
-	// });
+	$('.js-getlocation').on('click', function(event) {
+		event.preventDefault();
+		getLocation();
+	});
 
-	getLocation();
+	if ($('.registrations.new').length > 0) {
+		getLocation();
+	}
 
 });
