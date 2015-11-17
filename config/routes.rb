@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'locations/get_address'
+
   devise_for :users, skip: [:sessions, :registrations]
 
   devise_scope :user do
@@ -11,10 +13,11 @@ Rails.application.routes.draw do
     post   "signup"  => "devise/registrations#create", as: :user_registration
     put    "signup"  => "devise/registrations#update", as: :update_user_registration
     get    "account" => "devise/registrations#edit",   as: :edit_user_registration
+    get    "users"   => "devise/registrations#edit",   as: :user_root
   end
 
   namespace :admin do
-    # get '/', to: 'pages#index'
+    get '/', to: 'pages#index'
 
     resources :products
     resources :users
@@ -42,6 +45,8 @@ Rails.application.routes.draw do
   get 'order/:id', to: 'orders#show', as: 'order'
   post 'order/:id', to: 'orders#paid_order', as: 'paid_order'
   delete 'order/:id', to: 'orders#cancel_order', as: 'cancel_order'
+
+  get 'get_address', to: 'locations#get_address'
 
   root 'products#index'
 

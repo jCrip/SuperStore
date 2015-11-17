@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
   private
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up) << [:name, :lastname, :username]
-      devise_parameter_sanitizer.for(:account_update) << [:name, :lastname, :username]
+      devise_parameter_sanitizer.for(:sign_up) << [:name, :lastname, :username, :address, :latitude, :longitude]
+      devise_parameter_sanitizer.for(:account_update) << [:name, :lastname, :username, :address, :latitude, :longitude]
     end
 
     def require_admin

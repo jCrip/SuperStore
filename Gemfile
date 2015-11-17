@@ -18,6 +18,8 @@ gem 'sass-rails'
 gem 'mini_magick'
 gem 'carrierwave'
 
+gem 'geocoder'
+
 gem 'delayed_job_active_record'
 
 group :development, :test do
