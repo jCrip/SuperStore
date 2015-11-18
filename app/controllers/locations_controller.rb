@@ -4,26 +4,21 @@ class LocationsController < ApplicationController
     @user = current_user
 
     if @user
-      @address = @user.address
       lat = @user.latitude
       lon = @user.longitude
+      @address = @user.address
+    end
 
-      @markers = Gmaps4rails.build_markers(@user) do |user, marker|
-        marker.lat lat
-        marker.lng lon
-        marker.title user.name
-        marker.infowindow user.username
-      end
-    elsif
+    if
       lat = params[:latitude]
       lon = params[:longitude]
       @address = Geocoder.address("#{lat}, #{lon}")
-
-      @markers = [{
-        lat: lat,
-        lng: lon
-      }]
     end
+
+    @markers = [{
+      lat: lat,
+      lng: lon
+    }]
 
     respond_to do |format|
       format.js
