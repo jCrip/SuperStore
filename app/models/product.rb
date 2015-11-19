@@ -22,6 +22,9 @@ class Product < ActiveRecord::Base
   validates :stock, presence: true
   validates :category, presence: true
 
+  geocoded_by :address
+  after_validation :geocode, if: ->(obj) { obj.address.present? and obj.address_changed? }
+
   default_scope { order(:id) }
 
   def update_stock (quantity)
