@@ -32,6 +32,23 @@
     <%= f.label :stock %><br>
     <%= f.number_field :stock, class: 'form-control' %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :address %><br />
+    <%= f.text_field :address, class: 'form-control js-address' %>
+    <button class="btn btn-primary js-getlocation">GetLocation</button>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude, class: 'form-control js-latitude' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude, class: 'form-control js-longitude' %>
+  </div>
+
   <div class="form-group">
     <p>
       <%= image_tag(@product.image.thumb.url, class: 'img-thumbnail') if @product.image? %>
