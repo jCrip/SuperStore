@@ -22,9 +22,9 @@ class LocationsController < ApplicationController
         lng: lon,
         infowindow: @user.name,
         picture: {
-          url: 'http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png',
-          width:  32,
-          height: 32
+          url: 'http://gmapsmarkergenerator.eu01.aws.af.cm/getmarker?scale=1&color=00ff00',
+          width:  22,
+          height: 40
         }
       }
 
