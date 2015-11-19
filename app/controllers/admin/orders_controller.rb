@@ -1,7 +1,7 @@
 class Admin::OrdersController < ApplicationController
   load_and_authorize_resource
   before_action :require_admin
-
+  layout 'admin'
   # GET /admin/orders
   # GET /admin/orders.json
   def index

@@ -1,6 +1,8 @@
 class Admin::UsersController < ApplicationController
   load_and_authorize_resource
   before_action :require_admin
+  layout 'admin'
+
   # GET /admin/users
   # GET /admin/users.json
   def index

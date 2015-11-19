@@ -1,6 +1,7 @@
 class Admin::ProductsController < ApplicationController
   load_and_authorize_resource
   before_action :require_admin
+  layout 'admin'
 
   # GET /admin/products
   # GET /admin/products.json

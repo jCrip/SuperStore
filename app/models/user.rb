@@ -28,7 +28,10 @@ class User < ActiveRecord::Base
   default_scope { order(:role, :id) }
 
   geocoded_by :address
+  reverse_geocoded_by :latitude, :longitude
+
   after_validation :geocode, if: ->(obj) { obj.address.present? and obj.address_changed? }
+  after_validation :reverse_geocode, if: ->(obj) { (obj.latitude.present? && obj.longitude.present?) and (obj.latitude_changed? || obj.longitude_changed?) }
 
   def default_role
     self.role ||= 1
