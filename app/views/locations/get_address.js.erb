@@ -3,7 +3,9 @@ $('.js-address').val("<%= j @address %>");
 var handler = Gmaps.build('Google');
 handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 	var markers = handler.addMarkers(<%=raw @markers.to_json %>);
+	var user_marker = handler.addMarker(<%=raw @usermarker.to_json %>)
 	handler.bounds.extendWith(markers);
 	handler.fitMapToBounds();
-	handler.getMap().setZoom(16);
+	handler.map.centerOn(user_marker)
+	// handler.getMap().setZoom(12);
 });
