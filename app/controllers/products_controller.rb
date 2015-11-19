@@ -9,6 +9,11 @@ class ProductsController < ApplicationController
     else
       @products = Product.all.includes(:category)
     end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /products/1

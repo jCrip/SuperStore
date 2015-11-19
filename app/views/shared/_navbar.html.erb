@@ -52,11 +52,10 @@
       </li>
       <% end %>
     </ul>
-    <%= form_tag products_path, method: :get, class: 'form-inline navbar-form pull-right m-r-md' do %>
+    <div class="form-inline navbar-form pull-right m-r-md">
     <div class="form-group">
-      <%= text_field_tag :q, nil, placeholder: 'Search', class: 'form-control' %>
-      <button type="submit" class="btn btn-success-outline">Submit</button>
+      <%= text_field_tag :q, nil, placeholder: 'Burcar', class: 'form-control', 'data-behavior': 'search-products' %>
     </div>
-    <% end %>
+    </div>
   </div>
 </nav>
