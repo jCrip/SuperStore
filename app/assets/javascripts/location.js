@@ -32,6 +32,14 @@ $(document).on('page:change', function() {
 		}
 	}
 
+	function getUserLocation() {
+		$.ajax({
+			url: '/get_address',
+			type: 'GET',
+			dataType: 'script',
+		})
+	}
+
 	$('.js-getlocation').on('click', function(event) {
 		event.preventDefault();
 		getLocation();
@@ -39,6 +47,10 @@ $(document).on('page:change', function() {
 
 	if ($('.registrations.new').length > 0) {
 		getLocation();
+	}
+
+	if ($('.registrations.edit').length > 0 ) {
+		getUserLocation();
 	}
 
 });

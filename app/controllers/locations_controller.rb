@@ -1,9 +1,24 @@
 class LocationsController < ApplicationController
   def get_address
-    lat = params[:latitude]
-    lon = params[:longitude]
 
-    @address = Geocoder.address("#{lat}, #{lon}")
+    @user = current_user
+
+    if @user
+      lat = @user.latitude
+      lon = @user.longitude
+      @address = @user.address
+    end
+
+    if params[:latitude].present?
+      lat = params[:latitude]
+      lon = params[:longitude]
+      @address = Geocoder.address("#{lat}, #{lon}")
+    end
+
+    @markers = [{
+      lat: lat,
+      lng: lon
+    }]
 
     respond_to do |format|
       format.js

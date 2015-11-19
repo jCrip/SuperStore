@@ -18,7 +18,10 @@ gem 'sass-rails'
 gem 'mini_magick'
 gem 'carrierwave'
 
+gem 'underscore-rails'
+
 gem 'geocoder'
+gem 'gmaps4rails'
 
 gem 'delayed_job_active_record'
 
@@ -37,4 +40,3 @@ group :development do
 
   gem 'spring'
 end
-
