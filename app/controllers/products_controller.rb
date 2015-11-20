@@ -5,9 +5,9 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     if params[:q].present?
-      @products = Product.where("lower(name) LIKE ?", "%#{params[:q].downcase}%")
+      @products = Product.search_by_name(params[:q]).page(params[:page]).per(3)
     else
-      @products = Product.all.includes(:category)
+      @products = Product.all.includes(:category).page(params[:page]).per(6)
     end
 
     respond_to do |format|
