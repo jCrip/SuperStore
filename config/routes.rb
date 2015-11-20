@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   delete 'order/:id', to: 'orders#cancel_order', as: 'cancel_order'
 
   get 'get_address', to: 'locations#get_address'
+  get 'get_directions', to: 'locations#get_directions'
 
   root 'products#index'
 

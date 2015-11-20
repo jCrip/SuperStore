@@ -48,4 +48,14 @@ class LocationsController < ApplicationController
     end
   end
 
+  def get_directions
+    @user = current_user
+
+    @u_lat = @user.latitude
+    @u_lng = @user.longitude
+
+    @d_lat = params[:latitude]
+    @d_lng = params[:longitude]
+  end
+
 end

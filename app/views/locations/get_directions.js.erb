@@ -1,0 +1,27 @@
+
+$('.js-address').val("<%= j @address %>");
+
+var directionsDisplay = new google.maps.DirectionsRenderer();
+var directionsService = new google.maps.DirectionsService();
+
+function calcRoute() {
+	var origin      = new google.maps.LatLng(<%= @u_lat %>, <%= @u_lng %>);
+	var destination = new google.maps.LatLng(<%= @d_lat %>, <%= @d_lng %>);
+	var request = {
+		origin:      origin,
+		destination: destination,
+		travelMode:  google.maps.TravelMode.DRIVING
+	};
+	directionsService.route(request, function(response, status) {
+		if (status == google.maps.DirectionsStatus.OK) {
+			directionsDisplay.setDirections(response);
+		}
+	});
+}
+
+calcRoute(); // call this anywhere you want
+
+var handler = Gmaps.build('Google');
+handler.buildMap({ internal: {id: 'map'}}, function(){
+	directionsDisplay.setMap(handler.getMap());
+});

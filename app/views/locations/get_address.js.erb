@@ -1,11 +1,38 @@
 $('.js-address').val("<%= j @address %>");
 
+function getDirections(latitude, longitude) {
+	jQuery.ajax({
+		url: '/get_directions',
+		type: 'GET',
+		dataType: 'script',
+		data: {
+			latitude: latitude,
+			longitude: longitude
+		},
+	});
+
+}
+
 var handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'} }, function() {
+handler.buildMap({
+	provider: {},
+	internal: {
+		id: 'map'
+	}
+}, function() {
 	var markers = handler.addMarkers(<%= raw @markers.to_json %>);
 	var user_marker = handler.addMarker(<%=raw @usermarker.to_json %>)
 	handler.map.centerOn(user_marker)
 	handler.bounds.extendWith(markers);
 	handler.fitMapToBounds();
 	// handler.getMap().setZoom(15);
+	markers.map(function(marker) {
+		google.maps.event.addListener(marker.getServiceObject(), 'click', function(object) {
+			latitude = object.latLng.G
+			longitude = object.latLng.K
+
+			getDirections(latitude, longitude);
+
+		});
+	});
 });
