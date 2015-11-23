@@ -10,7 +10,6 @@ function getDirections(latitude, longitude) {
 			longitude: longitude
 		},
 	});
-
 }
 
 var handler = Gmaps.build('Google');
@@ -21,8 +20,8 @@ handler.buildMap({
 	}
 }, function() {
 	var markers = handler.addMarkers(<%= raw @markers.to_json %>);
-	var user_marker = handler.addMarker(<%=raw @usermarker.to_json %>)
-	handler.map.centerOn(user_marker)
+	var user_marker = handler.addMarker(<%=raw @usermarker.to_json %>);
+	handler.map.centerOn(user_marker);
 	handler.bounds.extendWith(markers);
 	handler.fitMapToBounds();
 	// handler.getMap().setZoom(15);

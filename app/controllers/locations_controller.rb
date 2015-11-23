@@ -4,7 +4,7 @@ class LocationsController < ApplicationController
     @user = current_user
 
     if @user
-      @products = Product.near(@user, 5)
+      @products = Product.near(@user, 6)
 
       lat = @user.latitude
       lon = @user.longitude
@@ -27,11 +27,9 @@ class LocationsController < ApplicationController
           height: 40
         }
       }
-
     end
 
     if params[:latitude].present?
-
       lat = params[:latitude]
       lon = params[:longitude]
       @address = Geocoder.address("#{lat}, #{lon}")
@@ -40,7 +38,6 @@ class LocationsController < ApplicationController
         lat: lat,
         lng: lon
       }
-
     end
 
     respond_to do |format|
