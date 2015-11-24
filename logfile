@@ -141,3 +141,13 @@ LOG:  database system was shut down at 2015-11-20 17:27:22 CLT
 LOG:  MultiXact member wraparound protections are now enabled
 LOG:  autovacuum launcher started
 LOG:  database system is ready to accept connections
+LOG:  database system was shut down at 2015-11-23 22:05:14 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  invalid input syntax for integer: "pending" at character 50
+STATEMENT:  SELECT "orders".* FROM "orders" WHERE (status <> 'pending')
+ERROR:  column "orders.id" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  SELECT "orders".* FROM "orders" GROUP BY "orders"."status"
+ERROR:  column "orders.id" must appear in the GROUP BY clause or be used in an aggregate function at character 8
+STATEMENT:  SELECT "orders".* FROM "orders" GROUP BY "orders"."status"

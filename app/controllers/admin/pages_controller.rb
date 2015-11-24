@@ -3,12 +3,10 @@ class Admin::PagesController < ApplicationController
   layout 'admin'
   def index
 
-    orders_raw = Order.group(:status).count
+    @orders = Order.group(:status).count
+    mappings = {0 => 'pendiente', 1 => 'pagado', 2 => 'cancelado'}
 
-    @orders = {}
-    @orders[:pendiente] = orders_raw[0]
-    @orders[:pagado] = orders_raw[1]
-    @orders[:cancelado] = orders_raw[2]
+    @orders.keys.each { |k| @orders[ mappings[k] ] = @orders.delete(k) if mappings[k] }
 
     @paid_orders = Order.paid.group_by_day(:updated_at, format: '%d/%m/%y').count
 
