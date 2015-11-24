@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 
   enum role: [:admin, :client, :guest]
 
-  default_scope { order(:role, :id) }
+  scope :order_by_role, -> { order(:role, :id) }
 
   geocoded_by :address
   reverse_geocoded_by :latitude, :longitude

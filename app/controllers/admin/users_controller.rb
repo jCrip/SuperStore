@@ -6,7 +6,7 @@ class Admin::UsersController < ApplicationController
   # GET /admin/users
   # GET /admin/users.json
   def index
-    @users = User.all
+    @users = User.order_by_role
   end
 
   # GET /admin/users/1

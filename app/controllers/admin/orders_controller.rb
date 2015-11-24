@@ -5,7 +5,7 @@ class Admin::OrdersController < ApplicationController
   # GET /admin/orders
   # GET /admin/orders.json
   def index
-    @orders = Order.all
+    @orders = Order.order_by_status
   end
 
   # GET /admin/orders/1

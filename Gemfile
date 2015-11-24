@@ -29,6 +29,9 @@ gem 'friendly_id'
 
 gem 'pg_search'
 
+gem 'groupdate'
+gem 'chartkick'
+
 gem 'delayed_job_active_record'
 
 group :development, :test do

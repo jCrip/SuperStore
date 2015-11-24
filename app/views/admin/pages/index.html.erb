@@ -1,1 +1,6 @@
-<h2>admin</h2>
+<h2>Admin Data</h2>
+
+<%= pie_chart @orders, id: 'orders', library: {is3D: true, title: 'Estado de ordenes'} %>
+
+<h4>Ordenes pagadas</h4>
+<%= column_chart @paid_orders, xtitle: 'Dia', ytitle: 'Cantidad' %>

@@ -36,9 +36,6 @@ class Product < ActiveRecord::Base
 
  after_validation :reverse_geocode, if: ->(obj) { (obj.latitude.present? && obj.longitude.present?) and (obj.latitude_changed? || obj.longitude_changed?) }
 
-
- default_scope { order(:id) }
-
  def update_stock (quantity)
   self.stock += quantity
   self.save
