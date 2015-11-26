@@ -5,8 +5,14 @@ class Product < ActiveRecord::Base
 
   friendly_id :name
 
-  pg_search_scope :search_by_name, against: [:name, :price], associated_against: {category: :name}, :using => {
-    :tsearch => {any_word: true, prefix: true}, :trigram => {:threshold => 0.1 } }
+  pg_search_scope :search_by_name,
+                  against: [:name, :price],
+                  associated_against: {category: :name},
+                  :using => {
+                    :tsearch => {any_word: true, prefix: true},
+                    :trigram => { :threshold => 0.5, :only => [:name] }
+                  },
+                  :ranked_by => ":trigram"
 
  mount_uploader :image, ImageUploader
 

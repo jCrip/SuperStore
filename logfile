@@ -151,3 +151,71 @@ ERROR:  column "orders.id" must appear in the GROUP BY clause or be used in an a
 STATEMENT:  SELECT "orders".* FROM "orders" GROUP BY "orders"."status"
 ERROR:  column "orders.id" must appear in the GROUP BY clause or be used in an aggregate function at character 8
 STATEMENT:  SELECT "orders".* FROM "orders" GROUP BY "orders"."status"
+ERROR:  column "title" does not exist at character 97
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'cot') > 0.3)  ORDER BY similarity(title, 'cot') DESC LIMIT 3 OFFSET 0
+ERROR:  column "title" does not exist at character 99
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'coton') > 0.3)  ORDER BY similarity(title, 'coton') DESC LIMIT 3 OFFSET 0
+ERROR:  column "title" does not exist at character 99
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'coton') > 0.3)  ORDER BY similarity(title, 'coton') DESC LIMIT 3 OFFSET 0
+ERROR:  column "title" does not exist at character 99
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'coton') > 0.3)  ORDER BY similarity(title, 'coton') DESC LIMIT 3 OFFSET 0
+ERROR:  extension "pg_trgm" already exists
+STATEMENT:  CREATE EXTENSION pg_trgm;
+ERROR:  column "similarity" does not exist at character 88
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'otton') > 0.3)  ORDER BY similarity DESC LIMIT 3 OFFSET 0
+ERROR:  column "similarity" does not exist at character 87
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'otto') > 0.3)  ORDER BY similarity DESC LIMIT 3 OFFSET 0
+ERROR:  column "similarity" does not exist at character 86
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'ott') > 0.3)  ORDER BY similarity DESC LIMIT 3 OFFSET 0
+ERROR:  column "similarity" does not exist at character 88
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'otobn') > 0.3)  ORDER BY similarity DESC LIMIT 3 OFFSET 0
+ERROR:  column "similarity" does not exist at character 88
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'otobn') > 0.3)  ORDER BY similarity DESC LIMIT 3 OFFSET 0
+ERROR:  column "similarity" does not exist at character 88
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'otobn') > 0.3)  ORDER BY similarity DESC LIMIT 3 OFFSET 0
+ERROR:  column "similarity" does not exist at character 87
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'otob') > 0.3)  ORDER BY similarity DESC LIMIT 3 OFFSET 0
+ERROR:  column "similarity" does not exist at character 86
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'oto') > 0.3)  ORDER BY similarity DESC LIMIT 3 OFFSET 0
+ERROR:  column "similarity" does not exist at character 87
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'oton') > 0.3)  ORDER BY similarity DESC LIMIT 3 OFFSET 0
+ERROR:  column "similarity" does not exist at character 87
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'oton') > 0.3)  ORDER BY similarity DESC LIMIT 3 OFFSET 0
+ERROR:  function similarity(character varying) does not exist at character 87
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'oton') > 0.3)  ORDER BY similarity(name) DESC LIMIT 3 OFFSET 0
+ERROR:  function similarity(character varying) does not exist at character 87
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'oton') > 0.3)  ORDER BY similarity(name) DESC LIMIT 3 OFFSET 0
+ERROR:  function similarity(character varying) does not exist at character 87
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'oton') > 0.3)  ORDER BY similarity(name) DESC LIMIT 3 OFFSET 0
+ERROR:  function similarity(character varying) does not exist at character 87
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'oton') > 0.3)  ORDER BY similarity(name) DESC LIMIT 3 OFFSET 0
+ERROR:  function similarity(character varying) does not exist at character 87
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'oton') > 0.3)  ORDER BY similarity(name) DESC LIMIT 3 OFFSET 0
+ERROR:  function similarity(character varying) does not exist at character 87
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT  "products".* FROM "products" WHERE (similarity(name, 'oton') > 0.3)  ORDER BY similarity(name) DESC LIMIT 3 OFFSET 0
+ERROR:  syntax error at or near ")" at character 30
+STATEMENT:  SELECT  *, similarity(name, ?) AS similarity, cot FROM "products"  ORDER BY similarity DESC, name LIMIT 3 OFFSET 0
+ERROR:  syntax error at or near ")" at character 30
+STATEMENT:  SELECT  *, similarity(name, ?) AS similarity, coton FROM "products"  ORDER BY similarity DESC, name LIMIT 3 OFFSET 0
+ERROR:  syntax error at or near ")" at character 30
+STATEMENT:  SELECT  *, similarity(name, ?) AS similarity, coton FROM "products"  ORDER BY similarity DESC, name LIMIT 3 OFFSET 0
+ERROR:  column "coton" does not exist at character 29
+STATEMENT:  SELECT  *, similarity(name, coton) AS similarity FROM "products"  ORDER BY similarity DESC, name LIMIT 3 OFFSET 0
+ERROR:  column "cot" does not exist at character 29
+STATEMENT:  SELECT  *, similarity(name, cot) AS similarity FROM "products"  ORDER BY similarity DESC, name LIMIT 3 OFFSET 0
+ERROR:  column "coto" does not exist at character 29
+STATEMENT:  SELECT  *, similarity(name, coto) AS similarity FROM "products"  ORDER BY similarity DESC, name LIMIT 3 OFFSET 0
+ERROR:  column "coton" does not exist at character 29
+STATEMENT:  SELECT  *, similarity(name, coton) AS similarity FROM "products"  ORDER BY similarity DESC, name LIMIT 3 OFFSET 0
+ERROR:  column "coton" does not exist at character 29
+STATEMENT:  SELECT  *, similarity(name, coton) AS similarity FROM "products"  ORDER BY similarity DESC, name LIMIT 3 OFFSET 0
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
