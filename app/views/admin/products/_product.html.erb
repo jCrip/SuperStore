@@ -1,10 +1,10 @@
 <tr>
 	<th scope="row"><%= product.id %></th>
-  <td><%= product.name %></td>
-  <td><%= truncate product.description %></td>
-  <td><%= number_to_currency product.price %></td>
-  <td><%= product.stock %></td>
-  <td><%= product.category %></td>
+  <td><%= best_in_place product, :name, path:[:admin, product], inner_class: 'form-control' %></td>
+  <td><%= best_in_place product, :description, as: :textarea, display_with: :truncate, path:[:admin, product], inner_class: 'form-control' %></td>
+  <td><%= best_in_place product, :price, display_with: :number_to_currency, path:[:admin, product], inner_class: 'form-control' %></td>
+  <td><%= best_in_place product, :stock, path:[:admin, product], inner_class: 'form-control' %></td>
+  <td><%= best_in_place product, :category_id, as: :select, collection: Category.all.map {|c| [c.id, c.name]}, place_holder: "#{product.category}", path:[:admin, product], inner_class: 'form-control' %></td>
   <td><%= product.likes.count %></td>
   <td><%= link_to 'Show', admin_product_path(product) %></td>
   <td><%= link_to 'Edit', edit_admin_product_path(product) %></td>

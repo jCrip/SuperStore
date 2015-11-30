@@ -32,6 +32,8 @@ gem 'pg_search'
 gem 'groupdate'
 gem 'chartkick'
 
+gem 'best_in_place'
+
 gem 'delayed_job_active_record'
 
 gem 'dotenv-rails'

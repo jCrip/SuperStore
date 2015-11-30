@@ -17,3 +17,8 @@ $(document).ready( function() {
 		}
 	});
 });
+
+
+$(document).on('page:change', function() {
+	$('.best_in_place').best_in_place();
+});
