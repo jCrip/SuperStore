@@ -18,6 +18,9 @@ gem 'sass-rails'
 gem 'mini_magick'
 gem 'carrierwave'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 gem 'underscore-rails'
 
 gem 'geocoder'

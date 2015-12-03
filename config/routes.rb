@@ -2,18 +2,17 @@ Rails.application.routes.draw do
 
   get 'locations/get_address'
 
-  devise_for :users, skip: [:sessions, :registrations]
+  devise_for :users, skip: [:sessions, :registrations], controllers: { omniauth_callbacks: :callbacks, registrations: :registrations }
 
   devise_scope :user do
     get    "login"   => "devise/sessions#new",         as: :new_user_session
     post   "login"   => "devise/sessions#create",      as: :user_session
     delete "signout" => "devise/sessions#destroy",     as: :destroy_user_session
 
-    get    "signup"  => "devise/registrations#new",    as: :new_user_registration
-    post   "signup"  => "devise/registrations#create", as: :user_registration
-    put    "signup"  => "devise/registrations#update", as: :update_user_registration
-    get    "account" => "devise/registrations#edit",   as: :edit_user_registration
-    get    "users"   => "devise/registrations#edit",   as: :user_root
+    get    "signup"  => "registrations#new",    as: :new_user_registration
+    post   "signup"  => "registrations#create", as: :user_registration
+    put    "signup"  => "registrations#update", as: :update_user_registration
+    get    "account" => "registrations#edit",   as: :edit_user_registration
   end
 
   namespace :admin do

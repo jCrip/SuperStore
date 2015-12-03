@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   after_update :send_password_change_email, if: :needs_password_change_email?
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+  :recoverable, :rememberable, :trackable, :validatable,
+  :omniauthable, omniauth_providers: [:facebook]
 
 
   has_many :orders, dependent: :destroy
@@ -48,6 +49,19 @@ class User < ActiveRecord::Base
   end
 
   private
+
+    def self.from_omniauth(auth)
+      binding.pry
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.name = auth.info.first_name
+        user.lastname = auth.info.last_name
+        user.address = auth.info.location
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0,20]
+      end
+    end
 
     def send_welcome_email
       UserMailer.welcome_email(self).deliver_later
