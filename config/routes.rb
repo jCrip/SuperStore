@@ -9,11 +9,14 @@ Rails.application.routes.draw do
     post   "login"   => "devise/sessions#create",      as: :user_session
     delete "signout" => "devise/sessions#destroy",     as: :destroy_user_session
 
-    get    "signup"  => "registrations#new",    as: :new_user_registration
-    post   "signup"  => "registrations#create", as: :user_registration
-    put    "signup"  => "registrations#update", as: :update_user_registration
-    get    "account" => "registrations#edit",   as: :edit_user_registration
+    get    "signup"  => "registrations#new",     as: :new_user_registration
+    post   "signup"  => "registrations#create",  as: :user_registration
+    put    "signup"  => "registrations#update",  as: :update_user_registration
+    get    "account" => "registrations#edit",    as: :edit_user_registration
+    delete "account/:id" => "registrations#destroy", as: :delete_account
   end
+
+  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
 
   namespace :admin do
     get '/', to: 'pages#index'

@@ -242,6 +242,8 @@ Devise.setup do |config|
     secure_image_url: true,
     image_size: {width: 600, height: 600}
 
+  config.omniauth :twitter, ENV['TWITTER_APP_ID'], ENV['TWITTER_APP_SECRET']
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
