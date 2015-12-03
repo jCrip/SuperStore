@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'locations/get_address'
 
-  devise_for :users, skip: [:sessions, :registrations], controllers: { omniauth_callbacks: :callbacks, registrations: :registrations }
+  devise_for :users, skip: [:sessions, :registrations], controllers: { omniauth_callbacks: :omniauth_callbacks, registrations: :registrations }
 
   devise_scope :user do
     get    "login"   => "devise/sessions#new",         as: :new_user_session
