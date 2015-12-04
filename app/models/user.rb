@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   has_many :carts, dependent: :destroy
   has_many :products, through: :carts
 
-  has_many :likes
+  has_many :likes, dependent: :destroy
   has_many :product_likes, through: :likes, source: :likable, source_type: 'Product'
   has_many :review_likes, through: :likes, source: :likable, source_type: 'Review'
 
