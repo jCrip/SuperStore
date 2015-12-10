@@ -53,12 +53,12 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.after_initialize do
-    Bullet.enable = true
+    Bullet.enable = false
     Bullet.alert = false
-    Bullet.bullet_logger = true
+    Bullet.bullet_logger = false
     Bullet.console = false
     Bullet.rails_logger = true
-    Bullet.add_footer = true
+    Bullet.add_footer = false
     Bullet.raise = false
 
     # Each of these settings defaults to true

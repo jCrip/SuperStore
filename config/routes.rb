@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   end
 
   get 'cart', to: 'carts#show', as: 'cart'
-  delete 'cart/:id', to: 'carts#destroy'
+  delete 'cart/:id', to: 'carts#destroy', as: 'cart_delete'
 
   get 'order', to: 'orders#create_order', as: 'create_order'
   get 'order/:id', to: 'orders#show', as: 'order'

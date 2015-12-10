@@ -3,7 +3,7 @@
   <td><%= image_tag cart.product.image.thumb.url, width: '50px' %></td>
   <td><%= link_to cart.product.name, cart.product %></td>
   <td class="text-center">
-    <%= form_tag add_to_cart_product_path(cart.product), method: :get, class: 'form-inline' do |f| %>
+    <%= form_tag add_to_cart_product_path(cart.product.id), method: :get, class: 'form-inline' do |f| %>
       <div class="form-group">
         <%= number_field_tag :quantity, cart.quantity, min: 1, max: cart.product.stock , class: 'form-control', style: 'width: 60px; text-align: center' %>
       </div>
@@ -11,5 +11,5 @@
   </td>
   <td class="text-right"><%= number_to_currency cart.product.price %></td>
   <td class="text-right"><%= number_to_currency cart.subtotal %></td>
-  <td class="text-center"><%= link_to 'Eliminar', cart_path(cart), method: :delete, data: { confirm: 'Estas seguro?' } %></td>
+  <td class="text-center"><%= link_to 'Eliminar', cart_delete_path(cart), method: :delete, data: { confirm: 'Estas seguro?' } %></td>
 </tr>

@@ -120,7 +120,6 @@ ActiveRecord::Schema.define(version: 20151203221801) do
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
-  add_index "products", ["name"], name: "trgm_idx", using: :gin
   add_index "products", ["slug"], name: "index_products_on_slug", unique: true, using: :btree
 
   create_table "reviews", force: :cascade do |t|

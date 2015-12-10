@@ -16,12 +16,18 @@
   </thead>
 
   <tbody>
-  	<%= render @carts %>
-  	<tr class="table-footer">
-  		<td colspan="5" class="text-right text-uppercase lead"><strong>Total:</strong></td>
-  		<td class="text-right"><strong class="lead"><%= number_to_currency @carts.total %></strong></td>
-  		<td class="text-center"><%= link_to 'Comprar', create_order_path, class: 'btn btn-success' %></td>
-  	</tr>
+  	<% if @carts.any? %>
+      <%= render @carts %>
+      <tr class="table-footer">
+        <td colspan="5" class="text-right text-uppercase lead"><strong>Total:</strong></td>
+        <td class="text-right"><strong class="lead"><%= number_to_currency @carts.total %></strong></td>
+        <td class="text-center"><%= link_to 'Comprar', create_order_path, class: 'btn btn-success' %></td>
+      </tr>
+    <% else %>
+      <tr>
+        <td><p>Carro vacio</p></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 
