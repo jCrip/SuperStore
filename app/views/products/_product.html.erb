@@ -9,7 +9,7 @@
       <p class="card-text">
         <%= link_to 'Ver', product, class: 'btn btn-info' %>
         <% unless product.stock < 1 %>
-        <%= link_to 'Añadir al carro', add_to_cart_product_path(product), class: 'btn btn-success' if can? :add_to_cart, Product %>
+        <%= link_to 'Añadir al carro', add_to_cart_product_path(product), remote: true, class: 'btn btn-success' if can? :add_to_cart, Product %>
         <% else %>
         <span class="btn btn-warning disabled">Sin stock</span>
         <% end %>

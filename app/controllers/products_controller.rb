@@ -36,6 +36,7 @@ class ProductsController < ApplicationController
   end
 
   def add_to_cart
+    binding.pry
     quantity = params[:quantity] || 1
     cart = Cart.find_or_initialize_by(product_id: params[:id])
     cart.user = current_user if user_signed_in?
@@ -44,7 +45,10 @@ class ProductsController < ApplicationController
     cart.save
 
     flash[:success] = 'Producto añadido a tu carro'
-    redirect_to :back
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
