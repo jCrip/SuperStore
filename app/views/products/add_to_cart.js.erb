@@ -1,1 +1,2 @@
-$('.js-cart').html("<%=  current_user.carts.count %>")
+$('.js-cart-count').html("<%= current_user.carts.count %>");
+$('.js-flash').html('<%= flash_messages %>');

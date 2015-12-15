@@ -2,15 +2,18 @@ class CartsController < ApplicationController
   load_and_authorize_resource
 
   def show
-    user = User.find(current_user.id)
+    user = current_user
     @carts = user.carts
   end
 
   def destroy
     @cart.destroy
+
+    user = current_user
+    @carts = user.carts
+
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'Producto eliminado del carro' }
-      format.json { head :no_content }
+      format.js { flash.now[:notice] = 'Producto eliminado del carro' }
     end
   end
 

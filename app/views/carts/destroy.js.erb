@@ -1,0 +1,3 @@
+$('.js-cart-count').html("<%= current_user.carts.count %>");
+$('.js-cart-list').html("<%= j render partial: 'products' %>");
+$('.js-flash').html('<%= flash_messages %>');

@@ -25,11 +25,11 @@
         </div>
         <% if can? :add_to_cart, Product %>
           <div class="pull-right">
-            <%= form_tag add_to_cart_product_path(@product), method: :get, class: 'form-inline' do |f| %>
+            <%= form_tag add_to_cart_product_path(@product.id), remote:true, method: :get, class: 'form-inline' do |f| %>
               <div class="form-group">
                 <% unless @product.stock < 1  %>
                 <%= label_tag :quantity, 'Cantidad' %>
-                <%= number_field_tag :quantity, current_user.carts.quantity_of(@product), min: 1, max: @product.stock, class: 'form-control', style: 'width: 60px; text-align: center' %>
+                <%= number_field_tag :quantity, current_user.carts.quantity_of(@product.id), min: 1, max: @product.stock, class: 'form-control', style: 'width: 60px; text-align: center' %>
                 <%= submit_tag('Añadir al carro', class: 'btn btn-success') %>
                 <% else %>
                 <span class="btn btn-warning disabled">Sin stock</span>

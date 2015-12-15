@@ -7,14 +7,16 @@
 		  <div class="card-block">
 		    <p class="card-text"><%= review.content %></p>
 		    <p class="card-text">Likes: <%= review.likes.count %></p>
-		    <%= button_to like_product_review_path(@product, review), method: :get, class: 'btn btn-primary' do %>
-		    	<% if review.liked_by? current_user %>
-		    		Unlike
-		    		<span class="icon-thumbs-down"></span>
-		    	<% else %>
-		    		Like
-		    		<span class="icon-thumbs-up"></span>
-		    	<% end %>
+		    <% if can? :like, Product %>
+			    <%= button_to like_product_review_path(@product, review), method: :get, class: 'btn btn-primary' do %>
+			    	<% if review.liked_by? current_user %>
+			    		Unlike
+			    		<span class="icon-thumbs-down"></span>
+			    	<% else %>
+			    		Like
+			    		<span class="icon-thumbs-up"></span>
+			    	<% end %>
+			    <% end %>
 		    <% end %>
 		  </div>
 		  <div class="card-footer text-muted">

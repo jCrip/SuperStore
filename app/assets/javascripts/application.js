@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require underscore
 //= require gmaps/google
 //= require best_in_place
+//= require turbolinks
 //= require_tree .

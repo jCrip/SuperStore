@@ -3,15 +3,19 @@
 <head>
   <title>Ecommerce</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
+
   <% if controller_name == 'orders' %>
-  <%= javascript_include_tag controller_name, 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag controller_name, 'data-turbolinks-track' => true %>
   <% end %>
   <%= csrf_meta_tags %>
 
 </head>
 <body>
-  <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
+
+
 
 	<%= render 'shared/admin_navbar' %>
 

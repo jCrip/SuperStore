@@ -5,30 +5,25 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
+  <%= javascript_include_tag "http://maps.google.com/maps/api/js?v=3.18&sensor=false&client=&key=&libraries=geometry&language=&hl=&region=" %>
+  <%= javascript_include_tag "http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" %>
+  <%= javascript_include_tag "http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.9/src/infobox_packed.js" %>
+
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
 
 	<%= render 'shared/navbar' %>
 
-	<%= flash_messages %>
-	<!-- <div class="alert alert-success alert-dismissible">
-		mensaje de alerta
-		<button class="close">
-			<span>&times;</span>
-			<span class="sr-only">Close</span>
-		</button>
-	</div> -->
+	<div class="js-flash">
+		<%= flash_messages %>
+	</div>
 
 	<div class="container">
 		<%= yield %>
 	</div>
 
 	<%= render 'shared/footer' %>
-
-	<%= javascript_include_tag "http://maps.google.com/maps/api/js?v=3.18&sensor=false&client=&key=&libraries=geometry&language=&hl=&region=" %>
-	<%= javascript_include_tag "http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" %>
-	<%= javascript_include_tag "http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.9/src/infobox_packed.js" %>
 
 </body>
 </html>
