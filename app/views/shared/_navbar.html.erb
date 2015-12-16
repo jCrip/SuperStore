@@ -11,7 +11,7 @@
         </li>
       <% end %>
     </ul>
-    <ul class="nav navbar-nav pull-right">
+    <ul class="nav navbar-nav pull-md-right">
       <% unless user_signed_in? %>
 
       <li class="nav-item">
@@ -52,7 +52,7 @@
       </li>
       <% end %>
     </ul>
-    <div class="form-inline navbar-form pull-right m-r-md">
+    <div class="form-inline navbar-form pull-md-right m-r-1">
     <div class="form-group">
       <%= text_field_tag :q, nil, placeholder: 'Burcar', class: 'form-control', 'data-behavior': 'search-products' %>
     </div>

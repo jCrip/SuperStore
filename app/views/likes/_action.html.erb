@@ -1,4 +1,4 @@
-<%= button_to like_product_path(likeable), method: :get, class: 'btn btn-primary m-r-md', form_class: "form-inline pull-left" do %>
+<%= button_to like_product_path(likeable), method: :get, class: 'btn btn-primary m-r-1', form_class: "form-inline pull-md-left" do %>
 	<% if likeable.liked_by? current_user %>
 		Unlike
 		<span class="icon-thumbs-down"></span>

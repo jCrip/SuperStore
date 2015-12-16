@@ -11,12 +11,12 @@
         <p class="card-text"><strong><%= number_to_currency @product.price %></strong></p>
       </div>
       <div class="card-footer clearfix">
-        <div class="pull-left clearfix">
-          <p class="pull-left m-r-md">Likes: <strong><%= @product.likes.count %></strong></p>
+        <div class="pull-md-left clearfix">
+          <p class="pull-md-left m-r-1">Likes: <strong><%= @product.likes.count %></strong></p>
           <% if can? :like, Product %>
             <%= render partial: "likes/action", locals: {likeable: @product} %>
           <% end %>
-          <p class="pull-left m-r-md m-b-0">
+          <p class="pull-md-left m-r-1 m-b-0">
             <%= link_to products_path, class: 'btn btn-info' do %>
               <span class="icon-back" aria-hidden="true"></span>
               Volver
@@ -24,7 +24,7 @@
           </p>
         </div>
         <% if can? :add_to_cart, Product %>
-          <div class="pull-right">
+          <div class="pull-md-right">
             <%= form_tag add_to_cart_product_path(@product.id), remote:true, method: :get, class: 'form-inline' do |f| %>
               <div class="form-group">
                 <% unless @product.stock < 1  %>
@@ -43,12 +43,12 @@
   </div>
 </div>
 <% if can? :create, Review %>
-  <h2 class="display-4 m-t-md m-b-md">Deja tu review</h2>
+  <h2 class="display-4 m-t-1 m-b-1">Deja tu review</h2>
   <div class="row">
       <%= render partial: 'reviews/form' %>
   </div>
 <% end %>
 <% if @product.reviews.any? %>
-  <h2 class="display-4 m-t-md m-b-md">Reviews (<%= @product.reviews.size %>)</h2>
+  <h2 class="display-4 m-t-1 m-b-1">Reviews (<%= @product.reviews.size %>)</h2>
   <%= render partial: 'reviews/review', collection: @reviews %>
 <% end %>

@@ -17,7 +17,7 @@
         </li>
       <% end %>
     </ul>
-    <ul class="nav navbar-nav pull-right">
+    <ul class="nav navbar-nav pull-md-right">
       <% unless user_signed_in? %>
 
       <li class="nav-item">
@@ -58,7 +58,7 @@
       </li>
       <% end %>
     </ul>
-    <%= form_tag products_path, method: :get, class: 'form-inline navbar-form pull-right m-r-md' do %>
+    <%= form_tag products_path, method: :get, class: 'form-inline navbar-form pull-md-right m-r-1' do %>
     <div class="form-group">
       <%= text_field_tag :q, nil, placeholder: 'Search', class: 'form-control' %>
       <button type="submit" class="btn btn-success-outline">Submit</button>

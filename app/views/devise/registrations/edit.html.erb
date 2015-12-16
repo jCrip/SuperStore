@@ -1,4 +1,4 @@
-<h2 class="display-4 m-t-md m-b-md">Perfil</h2>
+<h2 class="display-4 m-t-1 m-b-1">Perfil</h2>
 <div class="row">
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'col-md-5' }) do |f| %>
@@ -27,7 +27,7 @@
   <div class="form-group">
     <%= f.label :address %><br />
     <%= f.text_field :address, class: 'form-control js-address' %>
-    <button class="btn btn-primary m-t-md js-getlocation">GetLocation</button>
+    <button class="btn btn-primary m-t-1 js-getlocation">GetLocation</button>
   </div>
 
   <div class="form-group">
@@ -111,7 +111,7 @@
 
     <!-- map -->
 
-    <div id="map" class="gmap m-t-md"></div>
+    <div id="map" class="gmap m-t-1"></div>
 
     <!-- /map -->
   </div>

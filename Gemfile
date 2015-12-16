@@ -13,7 +13,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'entypo-rails'
-gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'sass-rails'
 gem 'mini_magick'
 gem 'carrierwave'

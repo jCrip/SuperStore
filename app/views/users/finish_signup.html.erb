@@ -1,4 +1,4 @@
-<h2 class="display-4 m-t-md m-b-md">Add Email</h2>
+<h2 class="display-4 m-t-1 m-b-1">Add Email</h2>
 <div class="row">
 	<%= form_for(current_user, :as => 'user', :url => finish_signup_path(current_user), html: {class: 'col-md-6'}) do |f| %>
 	  <% if @show_errors && current_user.errors.any? %>
