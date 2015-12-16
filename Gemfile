@@ -41,6 +41,7 @@ gem 'best_in_place'
 gem 'whenever', require: false
 
 gem 'delayed_job_active_record'
+gem 'daemons'
 
 gem 'dotenv-rails'
 gem 'faker'
