@@ -81,6 +81,8 @@ GEM
       sshkit (~> 1.2)
     capistrano-ssh-doctor (1.0.0)
       capistrano (>= 3.1)
+    capistrano3-delayed-job (1.4.2)
+      capistrano (>= 3.0.0)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -291,6 +293,7 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   capistrano-ssh-doctor
+  capistrano3-delayed-job
   carrierwave
   chartkick
   daemons

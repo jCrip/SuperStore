@@ -64,4 +64,5 @@ group :development do
   gem 'capistrano-rvm'
   gem 'capistrano-passenger'
   gem 'capistrano-ssh-doctor'
+  gem 'capistrano3-delayed-job'
 end
