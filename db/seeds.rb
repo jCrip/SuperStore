@@ -11,7 +11,7 @@ Category.destroy_all
 admin = User.create(
   name: 'Juan Cristobal',
   lastname: 'Pazos',
-  username: 'juancri',
+  username: 'admin',
   email: 'admin@ecommerce.com',
   password: 'password',
   role: 0
