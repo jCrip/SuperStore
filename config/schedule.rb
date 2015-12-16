@@ -1,5 +1,5 @@
 # Use this file to easily define all of your cron jobs.
 #
-every :day, at: '7:30pm' do
+every 10.minutes do
   rake 'send_email'
 end
