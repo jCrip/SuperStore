@@ -43,13 +43,13 @@ gem 'whenever', require: false
 gem 'delayed_job_active_record'
 
 gem 'dotenv-rails'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
   gem 'quiet_assets'
   gem 'better_errors'
-  gem 'faker'
   gem 'bullet'
 end
 
