@@ -99,7 +99,7 @@ class User < ActiveRecord::Base
     end
 
     def send_welcome_email
-      UserMailer.welcome_email(self).deliver_later
+      UserMailer.welcome_email(self).deliver_later(wait: 1.minute)
     end
 
     def needs_password_change_email?
@@ -107,7 +107,7 @@ class User < ActiveRecord::Base
     end
 
     def send_password_change_email
-      UserMailer.password_changed(self).deliver_later(wait: 30.seconds)
+      UserMailer.password_changed(self).deliver_later(wait: 2.minutes)
     end
 
 end
