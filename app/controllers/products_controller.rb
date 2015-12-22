@@ -4,7 +4,6 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    binding.pry
     if params[:q].present?
       @products = Product.search_by_name(params[:q]).page(params[:page]).per(3)
     else

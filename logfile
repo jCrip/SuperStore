@@ -229,3 +229,7 @@ LOG:  shutting down
 LOG:  database system is shut down
 FATAL:  lock file "postmaster.pid" already exists
 HINT:  Is another postmaster (PID 771) running in data directory "/usr/local/var/postgres"?
+LOG:  database system was shut down at 2015-12-20 23:32:03 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started

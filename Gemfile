@@ -20,6 +20,10 @@ gem 'sass-rails'
 gem 'mini_magick'
 gem 'carrierwave'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
+
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
