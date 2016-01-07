@@ -1,6 +1,5 @@
 $(document).on('page:change', function() {
 
-
 	function geoSuccess(position) {
 		var lat = position.coords.latitude;
 		var lon = position.coords.longitude;
