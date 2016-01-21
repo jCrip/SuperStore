@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Ecommerce</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
@@ -10,6 +12,7 @@
   <%= javascript_include_tag "http://google-maps-utility-library-v3.googlecode.com/svn/tags/infobox/1.1.9/src/infobox_packed.js" %>
 
   <%= csrf_meta_tags %>
+
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
 
