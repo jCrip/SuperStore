@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.0'
 
-gem 'rails', '4.2.5'
+gem 'rails', '4.2.5.1'
 gem 'pg'
 gem 'uglifier', '>= 1.3.0'
 
@@ -69,7 +69,7 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rvm'
-  gem 'capistrano-passenger'
+  gem 'capistrano3-puma'
   gem 'capistrano-ssh-doctor'
   gem 'capistrano3-delayed-job'
 end
