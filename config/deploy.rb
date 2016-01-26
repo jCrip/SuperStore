@@ -8,7 +8,7 @@ set :user                    , 'deploy'
 set :application             , 'ecommerce'
 set :deploy_to               , "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :scm                     , :git
-set :repo_url                , 'git@github.com:jCrip/campfire.git'
+set :repo_url                , 'git@github.com:jCrip/SuperStore.git'
 set :branch                  , :master
 set :keep_releases           , 5
 set :ssh_options             , { forward_agent: true, user: fetch(:user) , keys: %w(~/.ssh/id_rsa.pub) }
