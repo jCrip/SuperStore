@@ -52,6 +52,8 @@ gem 'daemons'
 gem 'dotenv-rails'
 gem 'faker'
 
+gem 'puma'
+
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'

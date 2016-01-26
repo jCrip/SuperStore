@@ -320,6 +320,7 @@ DEPENDENCIES
   pg_search
   pry-byebug
   pry-rails
+  puma
   quiet_assets
   rails (= 4.2.5.1)
   rails-assets-tether (>= 1.1.0)!
