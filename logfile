@@ -245,3 +245,21 @@ LOG:  autovacuum launcher shutting down
 LOG:  received smart shutdown request
 LOG:  shutting down
 LOG:  database system is shut down
+LOG:  database system was shut down at 2016-01-26 17:57:21 CLT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  role "deploy" does not exist
+FATAL:  database "ecommerce_production" does not exist
+FATAL:  role "deploy" does not exist
+FATAL:  role "deploy" does not exist
+FATAL:  role "deploy" does not exist
+FATAL:  role "deploy" does not exist
+FATAL:  role "deploy" does not exist
+FATAL:  role "deploy" does not exist
+FATAL:  role "deploy" does not exist
+FATAL:  role "deploy" does not exist
+FATAL:  role "deploy" does not exist
+FATAL:  role "deploy" does not exist
+FATAL:  role "deploy" does not exist
+FATAL:  role "deploy" does not exist
