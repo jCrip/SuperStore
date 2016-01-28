@@ -263,3 +263,7 @@ FATAL:  role "deploy" does not exist
 FATAL:  role "deploy" does not exist
 FATAL:  role "deploy" does not exist
 FATAL:  role "deploy" does not exist
+LOG:  autovacuum launcher shutting down
+LOG:  received smart shutdown request
+LOG:  shutting down
+LOG:  database system is shut down
