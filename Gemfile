@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.5.1'
+gem 'puma'
 gem 'pg'
 gem 'uglifier', '>= 1.3.0'
 
@@ -49,8 +50,6 @@ gem 'daemons'
 
 gem 'dotenv-rails'
 gem 'faker'
-
-gem 'puma'
 
 group :development, :test do
   gem 'byebug'
