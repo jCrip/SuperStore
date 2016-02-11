@@ -7,6 +7,18 @@ module ApplicationHelper
     self.user_likes.include? user
   end
 
+  def title(text)
+    content_for :title, text
+  end
+
+  def meta_tag(tag, text)
+    content_for :"meta_#{tag}", text
+  end
+
+  def yield_meta_tag(tag, default_text='')
+    content_for?(:"meta_#{tag}") ? content_for(:"meta_#{tag}") : default_text
+  end
+
   def bootstrap_class_for flash_type
     { success: "alert-success", error: "alert-danger", alert: "alert-warning", notice: "alert-info" }[flash_type.to_sym] || flash_type.to_s
   end
