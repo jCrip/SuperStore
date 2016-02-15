@@ -71,4 +71,5 @@ group :development do
   gem 'capistrano3-puma'
   gem 'capistrano-ssh-doctor'
   gem 'capistrano3-delayed-job'
+  gem 'airbrussh', :require => false
 end

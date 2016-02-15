@@ -11,5 +11,6 @@ require 'capistrano/puma/nginx'
 require 'capistrano/ssh_doctor'
 require 'capistrano/delayed-job'
 require 'whenever/capistrano'
+require 'airbrussh/capistrano'
 
 Dir.glob('lib/capistrano/tasks/*.rake').each { |r| import r }
