@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.5.1'
+gem 'rails', '4.2.6'
 gem 'puma'
 gem 'pg'
 gem 'uglifier', '>= 1.3.0'
@@ -72,4 +72,7 @@ group :development do
   gem 'capistrano-ssh-doctor'
   gem 'capistrano3-delayed-job'
   gem 'airbrussh', :require => false
+
+  gem 'railroady'
+  gem 'rails-erd'
 end
