@@ -23,7 +23,7 @@
 <body class="<%= controller_name %> <%= action_name %>">
 
 	<%= render 'shared/navbar' %>
-
+  <% flash.notice = "Post successfully created" %>
 	<div class="js-flash">
 		<%= flash_messages %>
 	</div>
