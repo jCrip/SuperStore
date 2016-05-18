@@ -1,0 +1,61 @@
+/*  01 VARIABLES
+---------------------------------------------------------------------- */
+$blue-dark: #292E33;
+$blue-light: #475059;
+
+$gray-dark: #8A9199;
+$gray-med: #BEC4CC;
+$gray-light: #EDEFF2;
+
+$yellow: #FFA322;
+$black: #000000;
+$white: #FFFFFF;
+
+$background-dark: $blue-dark;
+$background-med: $blue-light;
+$background-light: $gray-light;
+
+$copy-dark: $blue-light;
+$copy-med: $gray-dark;
+$copy-light: $gray-med;
+
+/*  02 IMPORTS
+---------------------------------------------------------------------- */
+@import "bourbon";
+@import "partials/grid-settings-ac";
+@import "neat";
+@import "partials/normalize";
+@import "partials/boilerplate";
+@import "partials/type-ac";
+@import "partials/ac-font";
+
+/*  03 SPRITE'S
+---------------------------------------------------------------------- */
+
+/*  04 NO SCRIPT
+---------------------------------------------------------------------- */
+#noscript {
+	display: none;
+	visibility: hidden;
+}
+
+/*  05 PRIMARY STYLES
+---------------------------------------------------------------------- */
+@import "partials/primary-ac";
+
+/*  06 PLUGINS CSS'S
+---------------------------------------------------------------------- */
+@import "partials/widearea";
+@import "partials/iCheck";
+
+/*  07 MEDIA QUERIES
+---------------------------------------------------------------------- */
+@import "partials/mediaq";
+
+/*  08 NON-SEMANTIC HELPER CLASSES
+---------------------------------------------------------------------- */
+@import "partials/helpers";
+
+/*  09 PRINT STYLES
+---------------------------------------------------------------------- */
+@import "partials/print";
